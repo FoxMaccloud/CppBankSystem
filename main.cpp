@@ -131,14 +131,44 @@ void newAccount()
 
 }
 
-void view_list()
+void viewAccounts()
 {
     FILE *view;
+    int records = 0;
     view=fopen("record.dat","r");
+    system("clear");
+    std::cout << "\nACC. NO.\tNAME\t\t\tADDRESS\t\t\tPHONE\n" << std::endl;
 
+    while (fscanf(view, "%d %s %d/%d/%d %d %s %s %lf %s %d/%d/%d\n", &add.accountNumber, &add.name, &add.dob.day, &add.dob.month, &add.dob.year, &add.age, &add.address, &add.nationality, &add.phone, &add.deposit, &add.deposit.day, &add.deposit.month, &add.deposit.year)!=EOF)
+    {
+        std::cout << "\n" << &add.accountNumber << " " << &add.name << " " << &add.address << " " << &add.phone << std::endl;
+        records++;
+    }
 
     fclose(view);
+    if (records == 0)
+    {
+        system("clear");
+        std::cout << "\n NO RECORDS!\n" << std::endl; 
+    }
+    
 
+    std::cout << "\n\t\t\tEnter 1 to go back the main menu \n 0 to exit:" << std::endl;
+    int option;
+    std::cin >> option;
+    while (true)
+    {
+        if (option == 1)
+        {
+            menu();
+            break;
+        } else if (option == 0) {
+            close();
+            break;
+        } else {
+            std::cout << "\t\t\tInvalid option!" << std::endl;
+        }
+    }
 }
 
 void edit(void)
