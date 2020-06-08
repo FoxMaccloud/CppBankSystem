@@ -116,7 +116,7 @@ void newAccount()
             menu();
             break;
         } else if (option == 0) {
-            //close();
+            close();
             break;
         } else {
             std::cout << "\t\t\tInvalid option!" << std::endl;
@@ -163,7 +163,7 @@ void viewAccounts()
             menu();
             break;
         } else if (option == 0) {
-            //close();
+            close();
             break;
         } else {
             std::cout << "\t\t\tInvalid option!" << std::endl;
